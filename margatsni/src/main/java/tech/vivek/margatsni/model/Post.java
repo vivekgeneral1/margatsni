@@ -1,7 +1,7 @@
 package tech.vivek.margatsni.model;
 
 import jakarta.persistence.*;
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 
 @Entity
 public class Post {
@@ -9,12 +9,16 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false)
     private AppUser owner;
 
+    @Column(nullable = false)
     private String imageUrl;
 
     private String caption;
+
+    public Post() {}
 
     public Post(AppUser owner, String imageUrl, String caption) {
         this.owner = owner;

@@ -3,7 +3,7 @@ package tech.vivek.margatsni.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 
 import java.time.LocalDateTime;
 
@@ -34,6 +34,8 @@ public class AppUser {
     @UpdateTimestamp
     @Column(nullable = false)
     private LocalDateTime updatedAt;
+
+    public AppUser() {}
 
     public AppUser(String name, String username, String email, String passwordHash, String profilePic, String bio) {
         this.name = name;
