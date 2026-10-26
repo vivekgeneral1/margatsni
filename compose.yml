@@ -9,19 +9,18 @@ services:
       - 5433:5432
     volumes:
       - margatsni_pgdata:/var/lib/postgresql
-
+      
   app:
     build: ./margatsni
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/margatsni_db
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
     ports:
       - 8081:8080
     depends_on:
       - db
+      # later add healthcheck on db and a dependency on that service_ready
 
 volumes: 
   margatsni_pgdata:
