@@ -1,9 +1,15 @@
 package tech.vivek.margatsni.model;
 
+import jakarta.persistence.CheckConstraint;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(
+        name = "follow",
+        check = @CheckConstraint(name = "disallow_self_follow", constraint = "follow.follower_id <> follow.followee_id")
+)
 public class Follow {
 
     @EmbeddedId
