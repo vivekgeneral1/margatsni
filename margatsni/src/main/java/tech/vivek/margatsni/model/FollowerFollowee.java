@@ -2,10 +2,18 @@ package tech.vivek.margatsni.model;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Embeddable
 public class FollowerFollowee {
+
+    @ManyToOne
+    @JoinColumn(name = "follower_id")
     private AppUser follower;
+
+    @ManyToOne
+    @JoinColumn(name = "followee_id")
     private AppUser followee;
 
     public FollowerFollowee() {}

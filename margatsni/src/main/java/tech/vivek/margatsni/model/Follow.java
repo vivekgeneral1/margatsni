@@ -1,9 +1,7 @@
 package tech.vivek.margatsni.model;
 
-import jakarta.persistence.CheckConstraint;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 
 @Entity
 public class Follow {

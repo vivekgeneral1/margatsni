@@ -1,10 +1,19 @@
 package tech.vivek.margatsni.model;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Embeddable
 public class LikeUserPost {
+
+    @ManyToOne
+    @JoinColumn(name = "liker_id")
     private AppUser liker;
+
+    @ManyToOne
+    @JoinColumn(name = "post_id")
     private Post post;
 
     public LikeUserPost() {}
