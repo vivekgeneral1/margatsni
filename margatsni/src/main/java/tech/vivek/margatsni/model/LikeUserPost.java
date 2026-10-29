@@ -5,6 +5,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+import java.util.Objects;
+
 @Embeddable
 public class LikeUserPost {
 
@@ -21,6 +23,18 @@ public class LikeUserPost {
     public LikeUserPost(AppUser liker, Post post) {
         this.liker = liker;
         this.post = post;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        LikeUserPost that = (LikeUserPost) o;
+        return Objects.equals(liker, that.liker) && Objects.equals(post, that.post);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(liker, post);
     }
 
     public AppUser getLiker() {
