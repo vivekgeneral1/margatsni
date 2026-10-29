@@ -3,6 +3,8 @@ package tech.vivek.margatsni.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import tools.jackson.databind.annotation.JsonPOJOBuilder;
+
 import java.util.UUID;
 
 import java.time.LocalDateTime;
