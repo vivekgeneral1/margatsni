@@ -21,11 +21,11 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
-        var res = authService.login(loginRequest);
-        return ResponseEntity.ok(res);
-    }
+//    @PostMapping("/login")
+//    public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
+//        var res = authService.login(loginRequest);
+//        return ResponseEntity.ok(res);
+//    }
 
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> signup(@Valid @RequestBody SignupRequest signupRequest) {

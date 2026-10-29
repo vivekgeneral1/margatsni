@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private AppUserRepository appUserRepository;
+    private final AppUserRepository appUserRepository;
 
     CustomUserDetailsService(AppUserRepository appUserRepository) {
         this.appUserRepository = appUserRepository;
@@ -27,7 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new User(
                 appUser.getUsername(),
                 appUser.getPasswordHash(),
-                List.of(new SimpleGrantedAuthority("USER"))
+                List.of(new SimpleGrantedAuthority("ROLE_USER"))
         );
     }
 }

@@ -27,15 +27,15 @@ public class AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public AuthResponse login(LoginRequest loginRequest) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginRequest.username(),
-                        loginRequest.password()
-                )
-        );
-        return new AuthResponse( "success", "token");
-    }
+//    public AuthResponse login(LoginRequest loginRequest) {
+//        authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(
+//                        loginRequest.username(),
+//                        loginRequest.password()
+//                )
+//        );
+//        return new AuthResponse( "success", "token");
+//    }
 
     public AuthResponse signup(SignupRequest signupRequest) {
 
@@ -54,7 +54,7 @@ public class AuthService {
                 signupRequest.bio()
         );
 
-        AppUser savedUser = appUserRepository.save(appUser);
+        appUserRepository.save(appUser);
         return new AuthResponse("success", "token");
     }
 }

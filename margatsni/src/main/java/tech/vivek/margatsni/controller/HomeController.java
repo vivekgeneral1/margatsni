@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @GetMapping("/health")
+    @GetMapping("/home")
     public String home(){
-        return "Hello World!";
+        return "Your personal data";
     }
 }
